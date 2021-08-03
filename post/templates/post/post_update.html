@@ -1,14 +1,64 @@
 {% extends 'base.html' %}
 {% block content %}
+<style>
+    *{display: center;}
+    #new-posting{text-align: center; font-weight: bold;font-size: 1.2em; margin: 20px 0px;}
+    .btn-upload{
+    color: yellowgreen; background-color: white; border: 1px solid yellowgreen;
+    border-radius: 5px; float: right; margin-top: 10px;
+    }
+    .content{margin: 20px 0px;}
+    p{font-size: 1em;}
+    #id_text{width: 100%;}
+    .container1{border-top: 1px solid #dedede; padding: 10px 0px;}
+    .load-image{margin-bottom: 20px;}
+</style>
 <div class="row">
     <div class="col"></div>
-    <div class="col-12 col-xl-8 col-md-8">
-        <form action="" method="post">
+    <div class="col-12 col-xl-4 col-md-8">
+        <div class="posting-title">
+            <p id="new-posting">게시물 수정</p>
+        </div>
+        <form action="" method="post" enctype='multipart/form-data'>
             {% csrf_token %}
-            {{form.as_p}}
-            <input type="submit" value="Create">
+<!--            취소버튼추가-->
+            <div class="container1">
+                <label>이미지 업로드</label>
+            <input type="submit" value="Modify ✔" class="btn-upload">
+            </div>
+            <div class="img_wrap">
+                <img src="" id="preview" style="width: 500px; height: 500px;" alt="이미지변경"/>
+            </div>
+            <div class="load-image">
+                {{form.image}}
+            </div>
+            <div class="container1">
+                {{form.text}}
+            </div>
         </form>
     </div>
     <div class="col"></div>
 </div>
+
+
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+$('#id_image').change(function(){
+    setImageFromFile(this, '#preview');
+});
+
+function setImageFromFile(input, expression) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $(expression).attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</script>
 {% endblock %}
+{% endblock %}
+

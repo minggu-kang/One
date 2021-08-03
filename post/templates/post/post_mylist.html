@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<!--profile-->
+<div class="container">
+    <section class="row">
+        <header class="card-header" style="display:flex;">
+            <div class="profile_warp" style="margin-top:50px">
+                {% load static %}
+                <button type="button" id="btn-upload" style="border:0; box-sizing: border-box;">
+                    <img src="{% static 'images/IMG_10.jpg' %}" id="profile_img" style="border:0; width:152px; height:152px; border-radius:50%;" alt="...">
+                </button>
+                <div>
+                    <form id="signform" name="signform" method="POST" ENCTYPE="multipart/form-data" action=" ">
+                        {% csrf_token %}
+                        <input type="file" id="file" name="file" style="display:none;" onchange="changeValue(this)">
+                        <input type="hidden" name = "target_url">
+                    </form>
+                </div>
+            </div>
+            <section class="profile_detail" style="display:flex; flex-direction:column;">
+                <div class="top" style=" display: flex; align-items: center;">
+                    <h2 class="user_name" style="font-size:28px; font-weight:300; font-height:32px; display:inline-block; margin-top:50px; padding: 3px 20px;:">
+                        {{user}}</h2>
+                </div>
+                <div class="profile_modify" style="width:397px; box-sizing:border-box; display:block; border:1px solid #ccc; justify-content: center;
+                     text-align:center; ">
+                    <a href="#" class="profile_edit" style="text-decoration:none; ">프로필편집</a>
+                </div>
+            </section>
+        </header>
+        <div class="middle" style="border:0;">
+            <div class="profile">
+                <p class="user_name">이름</p>
+                <p class="card-text">{{user.profile_msg}}</p>
+            </div>
+            <div class="card" style="margin-bottom:20px;">
+                <p class="card-text" style="text-align:center;">게시물</p>
+            </div>
+        </div>
+        <!-- Gallery -->
+        <div class="row">
+          <div class="col-md-12">
+              <div class="row">
+                  {% for object in object_list %}
+                  {% if object.author == request.user %}
+                  <figure class="col-md-4">
+                      <img src="{{object.image.url}}" class="w-100 shadow-1-strong rounded mb-4" alt="">
+                  </figure>
+                  {% endif %}
+                  {% endfor %}
+              </div>
+          </div>
+        </div>
+    </section>
+</div>
+<!-- Gallery -->
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    // 이미지 클릭시 업로드창 실행
+    $('#btn-upload').click(function(e){
+        e.preventDefault();
+        $('#file').click();
+    });
+    // 이미지 변경
+    $("input[name='file']").change(function(e){
+        $( "#profile_img" ).submit();
+        $("input[name='file']").val();
+        var frm = document.getElementById('btn-upload');
+        frm.method = 'POST';
+        frm.enctype = 'multipart/form-data';
+        var fileData = new FormData(frm)
+    });
+});
+</script>
+
+{% endblock %}
+
+{% endblock %}

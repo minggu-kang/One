@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fac18229-68ef-4db1-8413-6a6316d29400" name="디폴트 변경 목록" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/timeline_photo/2021/07/30/IMG_4562.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/timeline_photo/2021/07/30/P20200606_111727840_BDC3423C-CBAB-4A76-ACB7-0363B5AA1BC4.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/timeline_photo/2021/07/30/P20200606_111729390_BD0312AA-2FEE-42D7-A644-5D3AC6A8143B.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/timeline_photo/2021/07/30/P20200701_174149720_A8166164-513F-4058-A765-79BCEAD504B8.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/timeline_photo/2021/07/30/로고2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/migrations/0003_auto_20210802_0951.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/static/css/common.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/static/css/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/static/images/IMG_10.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/static/images/TEAM_STAGRAM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/templates/common/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/templates/common/signup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/templates/form_errors.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/templates/post/post_mylist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/templates/common/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/templates/common/logout.html" beforeDir="false" afterPath="$PROJECT_DIR$/post/templates/common/logout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/layout/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/post/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post/static/images/insta_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/post/templates/post/post_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/post/templates/post/post_create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post/templates/post/post_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/post/templates/post/post_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post/templates/post/post_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/post/templates/post/post_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/post/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/post/views.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1wB4yJjE8LzWB8r0YBPYvyJWyFt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../dstagramproject-master" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="fac18229-68ef-4db1-8413-6a6316d29400" name="디폴트 변경 목록" comment="" />
+      <created>1627918903313</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1627918903313</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>

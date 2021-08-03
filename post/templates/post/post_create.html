@@ -1,18 +1,69 @@
 {% extends 'base.html' %}
 {% block content %}
+<style>
+    *{display: center;}
+    #new-posting{text-align: center; font-weight: bold;font-size: 1.2em; margin: 20px 0px;}
+    .btn-upload{
+    color: yellowgreen; background-color: white; border: 1px solid yellowgreen;
+    border-radius: 5px; float: right; margin-top: 10px;
+    }
+    .content{margin: 20px 0px;}
+    p{font-size: 1em;}
+    #id_text{width: 100%;}
+    .container1{border-top: 1px solid #dedede; padding: 10px 0px;}
+</style>
 <div class="row">
     <div class="col"></div>
-    <div class="col-12 col-xl-8 col-md-8">
-        <div class="alert alert-primary" role="alert">
-            모든 부분을 다 채워넣어주세요!!
+    <div class="col-12 col-xl-4 col-md-8">
+        <div class="posting-title">
+            <p id="new-posting">새 게시물</p>
         </div>
         <form action="" method="post" enctype='multipart/form-data'>
             {% csrf_token %}
+            <input type="submit" value="Upload ✔" class="btn-upload">
+            <div class="container1">
+                <label for="id_image">이미지 업로드</label>
+                <p class="content">
+                    <input type="file" name="image" accept="image/*" id="id_image" >
+                </p>
+            </div>
+            <!--    이미지 미리보기 영역   -->
+            <div class="img_wrap">
+                <img src="" id="preview" style="width: 500px; height: 500px;" alt="이미지추가"/>
+            </div>
+            <div class="container1">
+                <p class="content">
+                    <textarea name="text" id="text_field" cols="50" rows="5" placeholder="140자 까지 등록 가능합니다."></textarea>
 
-            {{form.as_p}}
-            <input type="submit" value="Upload" class="btn btn-primary">
+                </p>
+            </div>
+            <!--            <div class="container1">-->
+            <!--                <p>사람 태그하기</p>-->
+            <!--            </div>-->
+            <!--            <div class="container1">-->
+            <!--                <p>위치 추가</p>-->
+            <!--            </div>-->
         </form>
     </div>
     <div class="col"></div>
 </div>
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+$('#id_image').change(function(){
+    setImageFromFile(this, '#preview');
+});
+
+function setImageFromFile(input, expression) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $(expression).attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</script>
+{% endblock %}
 {% endblock %}

@@ -7,32 +7,34 @@
     <div class="row">
         <div class="col"></div>
         <div class="col-5">
+
             {% for object in object_list %}
 
-            <div class="card">
+            <article class="card mb-4" style="margin-top: 50px;">
                 <div class="card-header">
                     {{ object.author }}
                 </div>
+
                 <img src="{{ object.image.url }}" class="card-img-top" alt="...">
+                <p class="card-text" style="margin-top:20px; margin-left:5px;"> {{ object.text }} </p>
                 <div class="card-text">
-                    <p class="card-text"> {{ object.text }} </p>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">
+                            <a href="{% url 'post:like' object.id %}"
+                               class="float-left btn-like {% if user in object.like.all %} active {% endif %}">좋아요</a>
+                            {% if object.like.all.count %}
+                            <span class="float-left">
+                                {{object.like.all.count}}
+                            </span>
+                            {% endif %}
+                            <a href="{% url 'post:favorite' object.id %}"
+                               class="float-right btn-favorite {% if user in object.favorite.all %}active{% endif %}">저장하기</a>
+                        </li>
+                    </ul>
+                        <li class="list-group-item">생성일 : {{object.created}}</li>
+
                 </div>
-                <ul class="list-group list-group-flush">
-
-                    <li class="list-group-item">
-                        <a href="{% url 'post:like' object.id %}"
-                           class="float-left btn-like {% if user in object.like.all %} active {% endif %}">좋아요</a>
-                        {% if object.like.all.count %}
-                        <span class="float-left">
-                            {{object.like.all.count}}
-                        </span>
-                        {% endif %}
-                        <a href="{% url 'post:favorite' object.id %}"
-                           class="float-right btn-favorite {% if user in object.favorite.all %}active{% endif %}">저장하기</a>
-                    </li>
-                    <li class="list-group-item">생성일 : {{object.created}}</li>
-
-                </ul>
                 <div class="card-body">
                     <a href="{% url 'post:detail' object.id %} " class="card-link">댓글달기</a>
                     {% if user == object.author %}
@@ -40,11 +42,21 @@
                     <a href="{% url 'post:delete' object.id %} " class="card-link">삭제하기</a>
                     {% endif %}
                 </div>
-            </div>
+            </article>
             {% endfor %}
         </div>
 
-        <div class="col"></div>
+        <div class="col">
+            {% load static %}
+            <div class="card" style="margin-top: 50px;">
+               <img src="{{user.profile_src_img}}}" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">{{user}}</h5>
+                    <p class="card-text">회원님의 스토리를 확인하세요</p>
+                    <a href="{% url 'post:mylist' %}" class="btn btn-primary">회원님의 스토리 이동</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

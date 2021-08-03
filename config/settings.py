@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'post',
     'common',
+    'disqus',
+    'django.contrib.sites',
 
 ]
 
@@ -122,3 +124,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+DISQUS_WEBSITE_SHORTNAME = 'team-stagram'
+
+SITE_ID = 1

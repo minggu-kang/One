@@ -10,6 +10,52 @@ from django.http import HttpResponseForbidden
 from urllib.parse import urlparse
 
 
+class PostMyList(ListView):
+    model = Post
+    template_name = 'post/post_mylist.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:       #로그인확인
+            messages.warning(request, '로그인이 필요한기능입니다.')
+            return HttpResponseRedirect('/')
+        return super(PostMyList, self).dispatch(request, *args, **kwargs)
+
+
+
+class PostLikeList(ListView):
+    model = Post
+    template_name = 'post/post_list.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:       #로그인확인
+            messages.warning(request, '로그인이 필요한기능입니다.')
+            return HttpResponseRedirect('/')
+        return super(PostLikeList, self).dispatch(request, *args, **kwargs)
+
+    def get_queryset(self):
+        # 좋아요한글 보여주기
+        user = self.request.user
+        queryset = user.like_post.all()
+        return queryset
+
+
+class PostFavoriteList(ListView):
+    model = Post
+    template_name = 'post/post_list.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:       #로그인확인
+            messages.warning(request, '로그인이 필요한기능입니다.')
+            return HttpResponseRedirect('/')
+        return super(PostFavoriteList, self).dispatch(request, *args, **kwargs)
+
+    def get_queryset(self):
+        # 저장한글 보여주기
+        user = self.request.user
+        queryset = user.favorite_post.all()
+        return queryset
+
+
 class PostLike(View):
     def get(self, request, *args, **kwargs):
         if not request.user.is_authenticated:       # 로그인확인
@@ -72,15 +118,13 @@ class PostUpdate(UpdateView):
     model = Post
     fields = ['text', 'image']
     template_name_suffix = '_update'
-    #success_url = '/'
+    # success_url = '/'
 
     def dispatch(self, request, *args, **kwargs):
         object = self.get_object()
         if object.author != request.user:
-            messages.warning(request, '수정 권한이 없습니다.')
+            messages.warning(request, '수정할 권한이 없습니다.')
             return HttpResponseRedirect('/')
-            # 삭제 페이지에서 권한이 없다 출력
-            # detail페이지로 되돌아가서 삭제실패 출력
         else:
             return super(PostUpdate, self).dispatch(request, *args, **kwargs)
 

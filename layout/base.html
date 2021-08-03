@@ -34,7 +34,7 @@
         width: 25px;
         height: 25px;
         background:url({% static 'images/insta_icon.png' %});
-        background-position: -130px -498px;
+        background-position: -155px -498px;
         text-indent: -9999px;
         overflow:hidden;
         border:none;
@@ -44,21 +44,29 @@
         width: 25px;
         height: 25px;
         background:url({% static 'images/insta_icon.png' %});
-        background-position: -155px -498px;
+        background-position: -130px -498px;
         text-indent: -9999px;
         overflow:hidden;
         border:none;
     }
+    img.logo_instagram2 {
+    align-self: center;
+    width: 250px;
+    margin-right: 20px
+}
 
     </style>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
       <div class="container-fluid">
+              <img class="logo_instagram2" src="{% static 'images/team_stagram2.png' %}" alt="instagram_logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
                     aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                  <a class="navbar-brand" href="#">Ming_Stargram</a>
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
                           <a class="nav-link active" aria-current="page" href="{% url 'post:index' %}">Home</a>
@@ -70,11 +78,18 @@
                       <li class="nav-item">
                           <a class="nav-link" href="{% url 'common:logout' %}">Logout</a>
                       </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{% url 'post:like_list' %}">좋아요한 사진보기</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{% url 'post:favorite_list' %}">저장한 사진보기</a>
+                      </li>
                       {% else %}
                       <li class="nav-item">
                           <a class="nav-link active" aria-current="page" href="{% url 'common:login' %}">Login</a>
                       </li>
                       {% endif %}
+
                   </ul>
                   <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
